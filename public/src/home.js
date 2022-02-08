@@ -40,13 +40,13 @@ function getMostPopularBooks(books) {
 
 function getMostPopularAuthors(books, authors) {
   //returns an object with name and count of books.
-  const objectOfAuthors = getMostPopularAuthorsHelper(books, authors);
+  const objectOfAuthors = _returnObjectWithNameAndCount(books, authors);
   //converting the object of authors to an array
   const list = Object.values(objectOfAuthors);
   return list.sort((item1, item2) => item2.count - item1.count).slice(0, 5);
 }
 
-function getMostPopularAuthorsHelper(books, authors) {
+function _returnObjectWithNameAndCount(books, authors) {
   return books.reduce((obj, book) => {
     const found = authors.find((author) => author.id === book.authorId);
     if (book.authorId in obj) {
