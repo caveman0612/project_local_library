@@ -12,10 +12,10 @@ function sortAccountsByLastName(accounts) {
 function getTotalNumberOfBorrows(account, books) {
   //using one reduce to access the books array and another to access the borrows array inside the books object
   return books.reduce(
-    (acc, cur) =>
+    (acc, book) =>
       acc +
-      cur.borrows.reduce(
-        (acc1, cur1) => (cur1.id === account.id ? acc1 + 1 : acc1 + 0),
+      book.borrows.reduce(
+        (acc1, cur) => (cur.id === account.id ? acc1 + 1 : acc1),
         0
       ),
     0
